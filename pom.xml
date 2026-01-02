@@ -55,11 +55,4 @@
     </build>
 
 </project>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-            </plugin>
-        </plugins>
-    </build>
-
-</project>
+               
