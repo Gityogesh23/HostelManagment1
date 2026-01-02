@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Git Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/Gityogesh23/HostelManagment1.git'
+            }
+        }
+
+        stage('Maven Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t image:${BUILD_NUMBER} ."
+            }
+        }
+
+        stage('Docker Image Tag and Push') {
+            steps {
+                sh """
+                docker tag image:${BUILD_NUMBER} yogeshpatil23/hostel-app:myimage_${BUILD_NUMBER}
+                docker push yogeshpatil23/hostel-app:myimage_${BUILD_NUMBER}
+                """
+            }
+        }
+    }
+}
