@@ -24,7 +24,7 @@ pipeline {
         stage('Docker Image Tag and Push') {
             steps {
                 sh """
-                docker tag image:${BUILD_NUMBER} yogeshpatil23/hostel-app:myimage_${BUILD_NUMBER}
+                docker tag myimage:${BUILD_NUMBER} yogeshpatil23/hostel-app:myimage_${BUILD_NUMBER}
                 docker push yogeshpatil23/hostel-app:myimage_${BUILD_NUMBER}
                 """
             }
