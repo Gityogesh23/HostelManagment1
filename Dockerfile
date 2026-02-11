@@ -18,7 +18,8 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=build /app/target/HostelManagementSystem.war \
                   /usr/local/tomcat/webapps/HostelManagementSystem.war
 #or usr/local/tomcat/webapps/ROOT.war
-# Not mandatory but for more cleaner we add it-->CMD ["catalina.sh","run"] 
+EXPOSE 8081
+CMD ["catalina.sh","run"] 
 #-------------------------------------------------------------
 # FROM tomcat:9
 # RUn rm -rf /usr/local/tomcat/webapps/
