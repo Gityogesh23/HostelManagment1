@@ -4,11 +4,11 @@ WORKDIR /app
 #Copy pom.xml first(For docker layer caching.)
 COPY pom.xml .
 # Download Dependencies.
-RUN mvn dependency:go-offline
+#RUN mvn dependency:go-offline
 # Copy source ./src
 COPY src ./src
 # Build WAR file
-RUN mvn clean package -DskipTests
+RUN mvn clean package
 # Stage 2: Runtime (Tomcat)
 FROM tomcat:9-jdk17-temurin
 # Remove default Tomcat apps
