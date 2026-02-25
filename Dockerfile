@@ -16,7 +16,7 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 
 #Copy WAR from build stage
 COPY --from=build /app/target/HostelManagementSystem.war \
-                  /usr/local/tomcat/webapps/HostelManagementSystem.war
+                  /usr/local/tomcat/webapps/ROOT.war
 #or usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8081
 CMD ["catalina.sh","run"] 
